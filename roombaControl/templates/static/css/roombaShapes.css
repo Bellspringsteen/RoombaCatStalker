@@ -1,0 +1,107 @@
+p.roomba { 
+	position: relative;
+}
+p.roomba.leftBump {
+	position: absolute;
+  	width:100px;
+       height:100px;
+       border:2px solid #000;
+       border-radius: 90px 0 0 0;
+       -moz-border-radius: 90px 0 0 0;
+       -webkit-border-radius: 90px 0 0 0;
+}
+p.roomba.rightBump {
+	position: relative;
+  	width:100px;
+       height:100px;
+       border:2px solid #000;
+	   left:100px;
+       border-radius: 0 90px 0 0;
+       -moz-border-radius: 0 90px 0 0;
+       -webkit-border-radius: 0 90px 0 0;
+}
+
+p.roomba.leftWheelDrop {
+	position: relative;
+	width:30px;
+	height:60px;
+	left:30px;
+	top:0px;
+	border:2px solid #000;
+}
+
+p.roomba.rightWheelDrop {
+	position: relative;
+	width:30px;
+	height:60px;
+	left:130px;
+	top:-70px;
+	border:2px solid #000;
+}
+
+p.roomba.castorWheelDrop {
+	position: relative;
+	width:30px;
+	height:30px;
+	left:85px;
+	top:-200px;
+	border:2px solid #000;
+}
+
+p.roomba.leftTopCliff {
+	position: relative;
+	width:60px;
+	height:15px;
+	left:30px;
+	top:-280px;
+	border:2px solid #000;
+	-webkit-transform: rotate(-30deg);
+}
+
+p.roomba.rightTopCliff {
+	position: relative;
+	width:60px;
+	height:15px;
+	left:110px;
+	top:-305px;
+	border:2px solid #000;
+	-webkit-transform: rotate(30deg);
+	
+}
+p.roomba.leftCliff {
+	position: relative;
+	width:15px;
+	height:60px;
+	left:0px;
+	top:-300px;
+	border:2px solid #000;
+	
+}
+
+p.roomba.rightCliff {
+	position: relative;
+	width:15px;
+	height:60px;
+	left:180px;
+	top:-370px;
+	border:2px solid #000;
+	
+}
+p.roomba.circle {
+	position: relative;
+	width: 210px;
+	height: 210px;
+	top:-520px;
+	left:-5px;
+	-moz-border-radius: 105px; 
+	-webkit-border-radius: 105px; 
+	border-radius: 105px;
+	border:2px solid #000;
+	
+}
+p.roomba.enabled{
+	background: black;
+}
+p.roomba.disabled{
+	background: white;
+}
