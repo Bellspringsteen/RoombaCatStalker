@@ -11,8 +11,8 @@ from roomba import AsciiRoomba
 logger = logging.getLogger('app')
 
 
-#RFCOMM_DEV="/dev/ttyUSB0"
-RFCOMM_DEV="/dev/tty.usbserial-FTG661LW"
+RFCOMM_DEV="/dev/ttyUSB0"
+#RFCOMM_DEV="/dev/tty.usbserial-FTG661LW"
 RFCOMM_BAUDRATE=115200
 incrementer = 0
 roomba = 0
@@ -23,7 +23,7 @@ def index(request):
 
 def takePicture():
     logger.debug("IN The take Picture function")
-    process = subprocess.Popen(["/bin/bash", "/srv/roombaControl/takePicture.sh"],stdout=subprocess.PIPE)
+    process = subprocess.Popen(["/bin/bash", "/srv/RoombaCatStalker/takePicture.sh"],stdout=subprocess.PIPE)
     process.wait()
     return process.returncode
 
