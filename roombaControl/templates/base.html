@@ -95,9 +95,10 @@
 		});
 	});
 
-	setInterval(pulse, 1000);
+	setInterval(pulse, 5000);
 
 	function pulse(){
+		console.log("IN Pulse");
 		getSensors();
 		takePicture();
 	}
@@ -177,7 +178,7 @@
 		  	<input type="submit" name="backward" class="btn btn-success" value="backward" />
 		  </div>
 		  <div class="row" align="center">
-		  	<input type="submit" class="btn btn-warning" name="disconnect" value="Disconnect" />
+		  	<input type="submit" class="btn btn-warning" name="disconnect" value="disconnect" />
 		  </div>
 	</form>
 	<div class="row" align="center">
