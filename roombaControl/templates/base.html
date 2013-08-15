@@ -165,7 +165,7 @@
 	</div>
 	<form method="post" action="{% url "controlcenter.views.controlAction" %}">
 		{% csrf_token %}
-	  
+	        <input type="text" name="speed" value="speed">
 		  <div class="row" align="center">
 			  <input type="submit" class="btn btn-success" name="forward" value="forward" />
 		  </div>
