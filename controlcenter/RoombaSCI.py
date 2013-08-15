@@ -269,7 +269,7 @@ class int16(object):
 class RoombaAPI(object):
 
     def __init__(self,port,baudrate):
-        self.__speed = 50
+        self.__speed = 100
         self.port = serial.Serial()
         #should be connected upon initialization. run again to verify connection settings
         self.port.port = port
