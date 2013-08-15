@@ -6,6 +6,7 @@ from django.http import Http404
 import logging
 import json
 import subprocess
+import time
 from RoombaSCI import RoombaAPI
 from roomba import AsciiRoomba
 logger = logging.getLogger('app')
@@ -27,30 +28,41 @@ def takePicture():
     process.wait()
     return process.returncode
 
+def moveDelay():
+    time.sleep(.70);
+    roomba.stop();
+
 def controlAction(request):
+    logger.debug("Got Request /n \n")
     global incrementer, roomba
     incrementer += 1
     if request.method == "POST":
         if 'left' in request.POST:
             roomba.full()
             roomba.left()
+	    moveDelay()
             logger.debug("Move Left")
         elif 'right' in request.POST:
             roomba.full()
             roomba.right()
+	    moveDelay()
             logger.debug("Move Right")
         elif 'forward' in request.POST:
             roomba.full()
             roomba.forward()
+	    moveDelay()
             logger.debug("Move forward")
         elif 'backward' in request.POST:
             roomba.full()
             roomba.backward()
+ 	    moveDelay()
             logger.debug("Move backward")
         elif 'stop' in request.POST:
             roomba.full()
             roomba.stop()
             logger.debug("Move stop")
+        elif 'disconnect' in request.POST:
+	    roomba.off()
     elif request.method == "GET":
         if 'getSensors' in request.GET:
             logger.debug("Received Get Sensors Call")
