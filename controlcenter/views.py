@@ -40,7 +40,7 @@ def controlAction(request):
     if request.method == "POST":
         logger.debug("Speed is "+str(request.POST.getlist('speed')[0]))
         roomba.full()
-        roomba.speed = request.POST.getlist('speed')[0]
+        roomba.speed = int(request.POST.getlist('speed')[0])
 	if 'left' in request.POST:
             roomba.left()
 	    moveDelay()
