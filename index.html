@@ -1,41 +1,87 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Roombacatstalker : Roomba + Embedded Computer + Camera + Django = Roomba Cat Stalker" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Roombacatstalker by Bellspringsteen</title>
+    <title>Roombacatstalker</title>
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <h1>Roombacatstalker</h1>
-        <h2>Roomba + Embedded Computer + Camera + Django = Roomba Cat Stalker</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Bellspringsteen/RoombaCatStalker">View on GitHub</a>
 
-        <section id="downloads">
-          <a href="https://github.com/Bellspringsteen/RoombaCatStalker/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/Bellspringsteen/RoombaCatStalker/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/Bellspringsteen/RoombaCatStalker" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+          <h1 id="project_title">Roombacatstalker</h1>
+          <h2 id="project_tagline">Roomba + Embedded Computer + Camera + Django = Roomba Cat Stalker</h2>
 
-    <div class="container">
-      <section id="main_content">
-        <h3>
-<a name="what-do-pages-look-like-in-the-projects" class="anchor" href="#what-do-pages-look-like-in-the-projects"><span class="octicon octicon-link"></span></a>What do pages look like in the projects?</h3>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Bellspringsteen/RoombaCatStalker/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Bellspringsteen/RoombaCatStalker/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="what-is-the-roomba-cat-stalker" class="anchor" href="#what-is-the-roomba-cat-stalker"><span class="octicon octicon-link"></span></a>What is the Roomba Cat Stalker</h1>
+
+<p><img src="http://bellspringsteen.github.io/RoombaCatStalker/images/RoombaCatStalker.gif" alt="alt text" title="Gif In Action"></p>
+
+<h3>
+<a name="want-to-spy-on-your-cat-from-the-office-heres-how-i-did-it-you-could-also-just-buy-one-of-these-but-where-is-the-fun-in-that" class="anchor" href="#want-to-spy-on-your-cat-from-the-office-heres-how-i-did-it-you-could-also-just-buy-one-of-these-but-where-is-the-fun-in-that"><span class="octicon octicon-link"></span></a>Want to spy on your cat from the office? Here's how I did it. You could also just buy one of <a href="http://www.amazon.com/WowWee-Rovio-Enabled-Robotic-WebCam/dp/B001CQLGD6">these</a>, but where is the fun in that.</h3>
 
 <h2>
-<a name="markdown" class="anchor" href="#markdown"><span class="octicon octicon-link"></span></a>markdown</h2>
+<a name="steps" class="anchor" href="#steps"><span class="octicon octicon-link"></span></a>Steps</h2>
+
+<ol>
+<li>Went on to eBay and bought a Roomba that was listed as broken. Turns out a lot of Roombas breakdown with they symptoms of "spinning in circles with 9 beeps." Easy fix with some new infrared sensors.</li>
+<li>Had a Dreamplug lying around, its a "headless" embedded Linux server.</li>
+<li>Secure the Dreamplug to the roomba with a 3D printed holder. </li>
+<li>Add a FTDI USB-Serial connection to send commands to the Roomba and add a DC/DC converter to run the Dreamplug off the Roomba's battery pack.
+<img src="http://bellspringsteen.github.io/RoombaCatStalker/images/pcb.png" alt="alt text" title="circuit">
+</li>
+<li>Wrote a Django web app to run on the device to display the webcam feed, view the Roomba sensors, and control the Roomba's motion. </li>
+</ol><p>All this so I can see what the cat is doing when I am gone. (I kind of thought he was putting on clothes and playing cards)</p>
+
+<p>Maybe things to do in the future:</p>
+
+<ul>
+<li>Turn image into video capture</li>
+<li>add voice recognition, probably <a href="http://www.speech.cs.cmu.edu/sphinx/">here</a>
+</li>
+<li>Camera on 3D axis servo?</li>
+</ul>
       </section>
     </div>
 
-    
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Roombacatstalker maintained by <a href="https://github.com/Bellspringsteen">Bellspringsteen</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-43867634-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
   </body>
 </html>
