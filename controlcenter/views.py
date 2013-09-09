@@ -6,13 +6,14 @@ from django.http import Http404
 import logging
 import json
 import subprocess
+import time
 from RoombaSCI import RoombaAPI
 from roomba import AsciiRoomba
 logger = logging.getLogger('app')
 
 
-#RFCOMM_DEV="/dev/ttyUSB0"
-RFCOMM_DEV="/dev/tty.usbserial-FTG661LW"
+RFCOMM_DEV="/dev/ttyUSB0"
+#RFCOMM_DEV="/dev/tty.usbserial-FTG661LW"
 RFCOMM_BAUDRATE=115200
 incrementer = 0
 roomba = 0
@@ -23,34 +24,44 @@ def index(request):
 
 def takePicture():
     logger.debug("IN The take Picture function")
-    process = subprocess.Popen(["/bin/bash", "/srv/roombaControl/takePicture.sh"],stdout=subprocess.PIPE)
+    process = subprocess.Popen(["/bin/bash", "/srv/RoombaCatStalker/takePicture.sh"],stdout=subprocess.PIPE)
     process.wait()
     return process.returncode
 
+def moveDelay():
+    time.sleep(.70);
+    roomba.stop();
+
 def controlAction(request):
+    logger.debug("Got Request /n \n")
     global incrementer, roomba
     incrementer += 1
+    logger.debug(request.POST)
     if request.method == "POST":
-        if 'left' in request.POST:
-            roomba.full()
+        logger.debug("Speed is "+str(request.POST.getlist('speed')[0]))
+        roomba.full()
+        roomba.speed = request.POST.getlist('speed')[0]
+	if 'left' in request.POST:
             roomba.left()
+	    moveDelay()
             logger.debug("Move Left")
         elif 'right' in request.POST:
-            roomba.full()
             roomba.right()
+	    moveDelay()
             logger.debug("Move Right")
         elif 'forward' in request.POST:
-            roomba.full()
             roomba.forward()
+	    moveDelay()
             logger.debug("Move forward")
         elif 'backward' in request.POST:
-            roomba.full()
             roomba.backward()
+ 	    moveDelay()
             logger.debug("Move backward")
         elif 'stop' in request.POST:
-            roomba.full()
             roomba.stop()
             logger.debug("Move stop")
+        elif 'disconnect' in request.POST:
+	    roomba.off()
     elif request.method == "GET":
         if 'getSensors' in request.GET:
             logger.debug("Received Get Sensors Call")
